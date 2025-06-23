@@ -1,259 +1,279 @@
-# Twelve AM 🌙
+<h1 align="center">
+  🕛 Twelve AM 🌙
+</h1>
 
-A modern, full-featured ecommerce platform built for the midnight shopping experience. Twelve AM delivers a sleek, user-friendly online shopping destination with comprehensive product management, secure payments, and seamless user experience.
+<p align="center">
+  <strong>A modern, full-featured ecommerce platform built for the midnight shopping experience.</strong><br />
+  Sleek. Secure. Seamless.
+</p>
+
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#-api-documentation">API</a> •
+  <a href="#-deployment">Deployment</a> •
+  <a href="#-contributing">Contributing</a>
+</p>
+
+---
 
 ## ✨ Features
 
-**Customer Experience**
-- Responsive design optimized for all devices
-- Advanced product search and filtering
-- Product reviews and ratings system
-- Wishlist and favorites functionality
-- Shopping cart with persistent storage
-- Guest checkout and user accounts
-- Order tracking and history
+### 🛍️ Customer Experience
+- 🔄 Fully responsive (mobile-first)
+- 🔍 Advanced search & filters
+- 💬 Product reviews and star ratings
+- ❤️ Wishlist / Favorites
+- 🛒 Persistent shopping cart
+- 🚀 Guest & registered checkout
+- 📦 Order tracking
 
-**Admin Dashboard**
-- Comprehensive product management
-- Order processing and fulfillment
-- Customer management system
-- Sales analytics and reporting
-- Inventory tracking
-- Promotional campaigns management
+### 🛠️ Admin Dashboard
+- 📋 Product CRUD operations
+- 🧾 Order fulfillment tools
+- 👥 Customer insights
+- 📊 Sales analytics
+- 📦 Inventory tracker
+- 💸 Promo & discount system
 
-**Security & Performance**
-- Secure payment processing
-- SSL encryption
-- User authentication and authorization
-- Performance optimization
-- SEO-friendly URLs
-- Fast loading times
+### 🔐 Security & Performance
+- 🔐 JWT-based auth
+- 💳 Secure Stripe/PayPal payments
+- ⚡ Optimized loading & SEO-ready
+- 🔐 HTTPS & SSL-ready
+- 🌐 SEO-friendly URLs
+
+---
 
 ## 🛠️ Tech Stack
 
-**Frontend**
+### 🖥️ Frontend
 - React.js / Next.js
 - Tailwind CSS / Styled Components
-- Redux / Context API for state management
-- Axios for API calls
+- Redux Toolkit / Context API
+- Axios + React Query
 
-**Backend**
-- Node.js with Express.js
+### ⚙️ Backend
+- Node.js + Express
 - MongoDB / PostgreSQL
-- JWT authentication
-- Stripe / PayPal payment integration
-- Cloudinary for image management
+- JWT, Bcrypt
+- Stripe / PayPal
+- Cloudinary (images)
 
-**DevOps**
-- Docker containerization
-- AWS / Vercel deployment
-- GitHub Actions CI/CD
-- Environment-based configurations
+### 🚀 DevOps
+- Docker & Docker Compose
+- CI/CD with GitHub Actions
+- AWS / Vercel / Netlify deployment
+- .env configuration per environment
+
+---
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-- MongoDB or PostgreSQL
-- Git
+### 🔧 Prerequisites
+- Node.js v16+
+- MongoDB / PostgreSQL
+- Git & Docker (optional)
 
-### Installation
+### 📦 Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/twelve-am.git
-   cd twelve-am
-   ```
+```bash
+git clone https://github.com/yourusername/twelve-am.git
+cd twelve-am
+```
 
-2. **Install dependencies**
-   ```bash
-   # Install backend dependencies
-   cd backend
-   npm install
+#### Install dependencies
 
-   # Install frontend dependencies
-   cd ../frontend
-   npm install
-   ```
+```bash
+# Backend
+cd backend
+npm install
 
-3. **Environment Setup**
-   ```bash
-   # Create environment files
-   cp .env.example .env.local
-   ```
-   
-   Configure your environment variables:
-   ```env
-   # Database
-   DATABASE_URL=your_database_connection_string
-   
-   # Authentication
-   JWT_SECRET=your_jwt_secret_key
-   
-   # Payment Gateway
-   STRIPE_SECRET_KEY=your_stripe_secret_key
-   STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
-   
-   # Cloud Storage
-   CLOUDINARY_CLOUD_NAME=your_cloudinary_name
-   CLOUDINARY_API_KEY=your_cloudinary_api_key
-   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-   ```
+# Frontend
+cd ../frontend
+npm install
+```
 
-4. **Database Setup**
-   ```bash
-   # Run database migrations
-   npm run migrate
-   
-   # Seed sample data (optional)
-   npm run seed
-   ```
+### ⚙️ Environment Setup
 
-5. **Start Development Servers**
-   ```bash
-   # Start backend server (Port 5000)
-   cd backend
-   npm run dev
-   
-   # Start frontend server (Port 3000)
-   cd frontend
-   npm run dev
-   ```
+```bash
+cp .env.example .env.local
+```
 
-6. **Access the Application**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:5000
-   - Admin Dashboard: http://localhost:3000/admin
+Configure your variables:
+
+```env
+# DATABASE
+DATABASE_URL=your_database_url
+
+# AUTH
+JWT_SECRET=supersecretkey
+
+# STRIPE
+STRIPE_SECRET_KEY=...
+STRIPE_PUBLISHABLE_KEY=...
+
+# CLOUDINARY
+CLOUDINARY_CLOUD_NAME=...
+CLOUDINARY_API_KEY=...
+CLOUDINARY_API_SECRET=...
+```
+
+### 📂 Migrate & Seed Database
+
+```bash
+npm run migrate      # Run migrations
+npm run seed         # Optional: seed test data
+```
+
+### 🚦 Start Development
+
+```bash
+# Backend
+cd backend
+npm run dev
+
+# Frontend
+cd ../frontend
+npm run dev
+```
+
+- 🖥 Frontend: http://localhost:3000  
+- 🔌 API Server: http://localhost:5000  
+- 🛠 Admin Panel: http://localhost:3000/admin
+
+---
 
 ## 📁 Project Structure
 
 ```
 twelve-am/
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── hooks/
-│   │   ├── utils/
-│   │   └── styles/
-│   ├── public/
-│   └── package.json
-├── backend/
-│   ├── src/
-│   │   ├── controllers/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   ├── middleware/
-│   │   └── utils/
-│   ├── config/
-│   └── package.json
-├── docs/
+├── frontend/           # React frontend
+│   └── src/
+│       ├── components/
+│       ├── pages/
+│       ├── hooks/
+│       └── styles/
+├── backend/            # Node.js backend
+│   ├── controllers/
+│   ├── routes/
+│   ├── models/
+│   └── middleware/
+├── docs/               # Developer documentation
 ├── docker-compose.yml
 └── README.md
 ```
 
-## 🔧 Available Scripts
+---
 
-**Frontend**
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run test` - Run tests
+## 📚 API Documentation
 
-**Backend**
-- `npm run dev` - Start development server with nodemon
-- `npm run start` - Start production server
-- `npm run test` - Run API tests
-- `npm run migrate` - Run database migrations
-- `npm run seed` - Seed database with sample data
+> Full Swagger-like API docs available at: `http://localhost:5000/api/docs`
 
-## 🌐 API Documentation
+### 🔑 Auth
 
-### Authentication Endpoints
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `POST /api/auth/logout` - User logout
-- `GET /api/auth/profile` - Get user profile
+- `POST /api/auth/register` — Create account  
+- `POST /api/auth/login` — Login  
+- `GET /api/auth/profile` — User details  
 
-### Product Endpoints
-- `GET /api/products` - Get all products
-- `GET /api/products/:id` - Get single product
-- `POST /api/products` - Create product (Admin)
-- `PUT /api/products/:id` - Update product (Admin)
-- `DELETE /api/products/:id` - Delete product (Admin)
+### 🛒 Products
 
-### Order Endpoints
-- `POST /api/orders` - Create new order
-- `GET /api/orders` - Get user orders
-- `GET /api/orders/:id` - Get single order
-- `PUT /api/orders/:id/status` - Update order status (Admin)
+- `GET /api/products` — All products  
+- `GET /api/products/:id` — Product details  
+- `POST /api/products` — (Admin) Add product  
+- `PUT /api/products/:id` — (Admin) Edit product  
+- `DELETE /api/products/:id` — (Admin) Delete product  
 
-For complete API documentation, visit `/api/docs` when running the development server.
+### 📦 Orders
+
+- `POST /api/orders` — Create order  
+- `GET /api/orders` — User orders  
+- `PUT /api/orders/:id/status` — (Admin) Update order status  
+
+---
 
 ## 🧪 Testing
 
 ```bash
-# Run all tests
+# Run unit & integration tests
 npm run test
 
 # Run tests with coverage
 npm run test:coverage
 
-# Run e2e tests
+# End-to-end tests
 npm run test:e2e
 ```
 
+---
+
 ## 🚢 Deployment
 
-### Using Docker
-```bash
-# Build and run with Docker Compose
-docker-compose up --build
+### 🔧 With Docker
 
-# Production deployment
-docker-compose -f docker-compose.prod.yml up -d
+```bash
+docker-compose up --build
 ```
 
-### Manual Deployment
-1. Build the frontend: `npm run build`
-2. Set production environment variables
-3. Deploy to your preferred hosting platform (Vercel, Netlify, AWS, etc.)
+### 🌐 Manual Deploy
 
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Team
-
-- **Frontend Developer** - [@yourusername](https://github.com/yourusername)
-- **Backend Developer** - [@yourusername](https://github.com/yourusername)
-- **UI/UX Designer** - [@yourusername](https://github.com/yourusername)
-
-## 📞 Support
-
-- 📧 Email: support@twelveam.com
-- 💬 Discord: [Join our community](https://discord.gg/twelveam)
-- 📖 Documentation: [docs.twelveam.com](https://docs.twelveam.com)
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/twelve-am/issues)
-
-## 🙏 Acknowledgments
-
-- Thanks to all contributors who helped build Twelve AM
-- Inspired by modern ecommerce best practices
-- Built with love for the midnight shopping community
+1. `npm run build` (frontend)
+2. Set environment vars
+3. Deploy via Vercel, Netlify, or AWS
 
 ---
 
-⭐ Star this repository if you find it helpful!
+## 🤝 Contributing
+
+We welcome all contributions!  
+Follow these steps to get started:
+
+```bash
+# Fork this repo
+git checkout -b feature/awesome-feature
+git commit -m "Add awesome feature"
+git push origin feature/awesome-feature
+```
+
+Pull requests are welcome ❤️
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
+
+---
+
+## 📝 License
+
+**MIT License** — See [LICENSE](LICENSE)
+
+---
+
+## 👥 Team
+
+| Role             | Name            | GitHub                                |
+|------------------|------------------|----------------------------------------|
+| 💻 Frontend Dev  | Your Name        | [@yourusername](https://github.com/yourusername) |
+| 🔧 Backend Dev   | Your Name        | [@yourusername](https://github.com/yourusername) |
+| 🎨 UI/UX Design  | Your Name        | [@yourusername](https://github.com/yourusername) |
+
+---
+
+## 📞 Support
+
+- 💬 [Join Discord](https://discord.gg/twelveam)
+- 📧 Email: support@twelveam.com
+- 📘 Docs: [docs.twelveam.com](https://docs.twelveam.com)
+- 🐞 [GitHub Issues](https://github.com/yourusername/twelve-am/issues)
+
+---
+
+## 🙏 Acknowledgements
+
+> Built with love for the midnight shopping community 🌙  
+> Inspired by the best of fashion tech & ecommerce best practices  
+> Designed for speed, security, and scalability
+
+---
+
+⭐ **Star this repo** to support the project and follow updates!
+
