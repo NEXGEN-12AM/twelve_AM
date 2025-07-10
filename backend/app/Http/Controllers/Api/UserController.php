@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $users = User::all();
+        return view('user.index', ['users' => $users]);
     }
 
     public function create()
@@ -24,6 +25,15 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        $data = $request->validate([
+            'name' => 'required|string|max:50',
+            'email' => 'required|string|email|max:50|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $data['password'] = Hash::make($data['password']);
+        User::create($data);
+        
+        return redirect(route('user.index'));
     }
-}
+} 
